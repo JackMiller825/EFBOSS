@@ -110,6 +110,7 @@ export const site: SiteConfig = {
     chainId: 1,
   },
   launchStatus: "prelaunch",
+  /** Shown beside Copy address. Replace null with the real 0x address to copy that value. */
   contractAddress: null,
   purchaseUrl: null,
   explorerUrl: null,

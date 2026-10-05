@@ -1,8 +1,9 @@
 import { useRef } from "react";
 import { site } from "../config/site.ts";
-import { canPurchase, isContractAddress, isHttpsUrl } from "../config/selectors.ts";
+import { canPurchase, contractAddressText, isHttpsUrl } from "../config/selectors.ts";
 import { useOnScreen } from "../hooks/useMedia.ts";
 import { BrandImage } from "./BrandImage.tsx";
+import { CopyAddressButton } from "./CopyAddressButton.tsx";
 import { ExternalLink } from "./ExternalLink.tsx";
 
 export function Hero() {
@@ -10,7 +11,6 @@ export function Hero() {
   const visible = useOnScreen(frameRef, 0.2);
   const live = canPurchase(site);
   const buyHref = live ? site.purchaseUrl : null;
-  const address = isContractAddress(site.contractAddress) ? site.contractAddress : null;
   const telegram = isHttpsUrl(site.social.telegram) ? site.social.telegram : null;
   const xLink = isHttpsUrl(site.social.x) ? site.social.x : null;
 
@@ -51,8 +51,11 @@ export function Hero() {
             </p>
           ) : null}
           <p className="hero-contract">
-            <span className="hero-contract-label">Contract Address:</span>{" "}
-            {address ?? "Coming Soon.."}
+            <span className="hero-contract-label">Contract Address:</span>
+            <span className="hero-contract-pair">
+              <span className="hero-contract-value">{contractAddressText(site)}</span>
+              <CopyAddressButton />
+            </span>
           </p>
         </div>
         <div className="hero-art">

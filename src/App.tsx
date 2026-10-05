@@ -37,13 +37,13 @@ export default function App() {
         <Section
           id="token-facts"
           tone="light"
-          eyebrow="Token"
+          eyebrow="Tokenomics"
           title="Funny cat. Clear facts."
           titleClass="single-line"
         >
           <TokenFacts />
         </Section>
-        <Section id="how-to-buy" tone="charcoal" eyebrow="Buying" title="Four steps to meet the boss.">
+        <Section id="how-to-buy" tone="charcoal" eyebrow="How to Buy" title="Four steps to meet the boss.">
           <HowToBuy />
         </Section>
       </main>

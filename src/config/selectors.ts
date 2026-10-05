@@ -162,3 +162,9 @@ export function pending(value: string | null | undefined, emptyLabel: string): s
   const trimmed = value?.trim();
   return trimmed ? trimmed : emptyLabel;
 }
+
+/** Shown beside Copy address. Replace `contractAddress` and this string updates. */
+export function contractAddressText(config: SiteConfig): string {
+  const value = config.contractAddress?.trim();
+  return value ? value : "Coming Soon..";
+}

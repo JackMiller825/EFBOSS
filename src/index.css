@@ -465,12 +465,37 @@ p {
 }
 
 .hero-contract {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.55rem;
   margin-top: 1.15rem;
   font-weight: 600;
 }
 
 .hero-contract-label {
   color: var(--cyan);
+}
+
+.hero-contract-pair,
+.contract-copy {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.7rem;
+  min-width: 0;
+}
+
+.hero-contract-value,
+.contract-copy-value {
+  overflow-wrap: anywhere;
+}
+
+.btn-copy {
+  min-width: 8.6rem;
+  min-height: 40px;
+  padding: 0.35rem 0.85rem;
+  font-size: 1.05rem;
 }
 
 .contract {
@@ -885,10 +910,14 @@ p {
 
 .facts th,
 .facts td {
-  padding: 0.95rem 0.2rem;
+  padding: 0.85rem 0.2rem;
   text-align: left;
-  vertical-align: top;
+  vertical-align: middle;
   border-bottom: 1px solid rgba(7, 17, 31, 0.1);
+}
+
+.contract-copy {
+  display: flex;
 }
 
 .facts th {

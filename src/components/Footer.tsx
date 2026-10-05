@@ -7,7 +7,7 @@ import { ExternalLink } from "./ExternalLink.tsx";
 const PAGE_LINKS = [
   { href: "#story", label: "Story" },
   { href: "#boss-test", label: "Boss Test" },
-  { href: "#token-facts", label: "Token" },
+  { href: "#token-facts", label: "Tokenomics" },
   { href: "#how-to-buy", label: "How to Buy" },
 ];
 

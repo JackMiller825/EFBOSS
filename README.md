@@ -45,7 +45,7 @@ That writes optimized PNG and WebP files, favicons, and `public/brand/og.png`. T
 
 ## Configure facts and links
 
-Edit `src/config/site.ts`. Leave unknown values as `null`. The token table shows supply, taxes, and ownership from this file. A missing contract address is shown as “Coming Soon..”, and Copy address stays disabled until the address is a valid `0x` value.
+Edit `src/config/site.ts`. Leave unknown values as `null`. The tokenomics table shows supply, taxes, and ownership from this file. A missing contract address is shown as “Coming Soon..”. **Copy address**, in the hero and in that table, copies the text on screen. Replace `contractAddress` with the real address and both places copy that value.
 
 | Field | What to enter |
 | --- | --- |
