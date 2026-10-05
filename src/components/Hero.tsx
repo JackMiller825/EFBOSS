@@ -1,9 +1,8 @@
 import { useRef } from "react";
-import { site, statements } from "../config/site.ts";
-import { canPurchase, isHttpsUrl, tradingMessage } from "../config/selectors.ts";
+import { site } from "../config/site.ts";
+import { canPurchase, isContractAddress, isHttpsUrl } from "../config/selectors.ts";
 import { useOnScreen } from "../hooks/useMedia.ts";
 import { BrandImage } from "./BrandImage.tsx";
-import { ContractPanel } from "./ContractPanel.tsx";
 import { ExternalLink } from "./ExternalLink.tsx";
 
 export function Hero() {
@@ -11,6 +10,7 @@ export function Hero() {
   const visible = useOnScreen(frameRef, 0.2);
   const live = canPurchase(site);
   const buyHref = live ? site.purchaseUrl : null;
+  const address = isContractAddress(site.contractAddress) ? site.contractAddress : null;
   const telegram = isHttpsUrl(site.social.telegram) ? site.social.telegram : null;
   const xLink = isHttpsUrl(site.social.x) ? site.social.x : null;
 
@@ -36,7 +36,7 @@ export function Hero() {
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
             ) : (
-              <button type="button" className="btn btn-disabled" disabled aria-describedby="buy-status">
+              <button type="button" className="btn btn-disabled" disabled>
                 Buy {site.ticker}
               </button>
             )}
@@ -50,11 +50,10 @@ export function Hero() {
               {xLink ? <ExternalLink href={xLink}>X</ExternalLink> : null}
             </p>
           ) : null}
-          <p id="buy-status" className="status-note">
-            {tradingMessage(site)}
+          <p className="hero-contract">
+            <span className="hero-contract-label">Contract Address:</span>{" "}
+            {address ?? "Coming Soon.."}
           </p>
-          <ContractPanel />
-          <p className="note">{statements.affiliationShort}</p>
         </div>
         <div className="hero-art">
           <div ref={frameRef} className={visible ? "hero-frame" : "hero-frame is-paused"}>

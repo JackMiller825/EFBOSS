@@ -145,6 +145,12 @@ p {
   max-width: 14ch;
 }
 
+.section h2.single-line {
+  max-width: none;
+  white-space: nowrap;
+  font-size: clamp(1.55rem, 6.6vw, 4.4rem);
+}
+
 .section-light h2,
 .section-light h3,
 .section-light h4 {
@@ -421,6 +427,11 @@ p {
   color: var(--white);
 }
 
+.section-light .btn:disabled {
+  color: var(--light-muted);
+  border-color: rgba(62, 81, 102, 0.45);
+}
+
 .quiet-links {
   display: flex;
   flex-wrap: wrap;
@@ -451,6 +462,15 @@ p {
 .status-note {
   margin-top: 0.9rem;
   max-width: 40rem;
+}
+
+.hero-contract {
+  margin-top: 1.15rem;
+  font-weight: 600;
+}
+
+.hero-contract-label {
+  color: var(--cyan);
 }
 
 .contract {
@@ -505,11 +525,36 @@ p {
   user-select: all;
 }
 
+.address-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.address-line .address {
+  display: inline;
+  margin: 0;
+}
+
+.address-line .copy-feedback {
+  margin: 0;
+  min-height: 0;
+}
+
+.address-line .copy-feedback:empty {
+  display: none;
+}
+
 .copy-feedback {
   min-height: 1.2rem;
   margin-top: 0.25rem;
   color: var(--yellow);
   font-size: 0.9rem;
+}
+
+.section-light .copy-feedback {
+  color: var(--link-on-light);
 }
 
 .contract-explorer {
@@ -1262,6 +1307,35 @@ legend,
 
 .footer-explorer {
   margin-top: 0.8rem;
+}
+
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--cyan-dim);
+  color: var(--white);
+  text-decoration: none;
+}
+
+a.social-icon:hover {
+  color: var(--navy);
+  background: var(--cyan);
+}
+
+.social-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
 }
 
 .footer-notes {

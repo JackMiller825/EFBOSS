@@ -6,6 +6,7 @@ export function Section({
   id,
   eyebrow,
   title,
+  titleClass,
   intro,
   tone = "navy",
   children,
@@ -13,6 +14,7 @@ export function Section({
   id: string;
   eyebrow?: string;
   title: string;
+  titleClass?: string;
   intro?: ReactNode;
   tone?: Tone;
   children: ReactNode;
@@ -22,7 +24,9 @@ export function Section({
     <section id={id} className={`section section-${tone}`} aria-labelledby={titleId}>
       <div className="wrap">
         {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-        <h2 id={titleId}>{title}</h2>
+        <h2 id={titleId} className={titleClass}>
+          {title}
+        </h2>
         {intro ? <div className="section-intro">{intro}</div> : null}
         {children}
       </div>

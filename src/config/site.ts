@@ -2,7 +2,6 @@
  * Project facts for Elon's Final Boss.
  *
  * Edit this file when a real detail is published. Leave unknown fields null.
- * Do not guess taxes, supply, liquidity, ownership, audits, or social links.
  *
  * Buying stays disabled unless all of the following are true:
  * - launchStatus is "live"
@@ -120,13 +119,13 @@ export const site: SiteConfig = {
     dextools: null,
     dexscreener: null,
   },
-  totalSupply: null,
-  buyTax: null,
-  sellTax: null,
+  totalSupply: "1,000,000,000",
+  buyTax: "0%",
+  sellTax: "0%",
   allocation: null,
   liquidityStatus: null,
   liquidityEvidence: null,
-  ownershipStatus: null,
+  ownershipStatus: "LP tokens are burnt and contract ownership is renounced.",
   adminControls: null,
   adminEvidence: null,
   sourceVerified: null,

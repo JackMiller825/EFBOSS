@@ -6,9 +6,8 @@ import { BrandImage } from "./BrandImage.tsx";
 const LINKS = [
   { href: "#story", label: "Story" },
   { href: "#boss-test", label: "Boss Test" },
-  { href: "#token-facts", label: "Token Facts" },
+  { href: "#token-facts", label: "Token" },
   { href: "#how-to-buy", label: "How to Buy" },
-  { href: "#community", label: "Community" },
 ];
 
 export function Header() {

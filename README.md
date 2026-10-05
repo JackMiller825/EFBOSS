@@ -1,6 +1,6 @@
 # Elon’s Final Boss ($EFBOSS)
 
-A single-page site for an independent Ethereum meme token. The mascot is a fictional grey kitten in a neon yellow safety vest. The page tells that story, shows only the token facts you enter, and keeps buying disabled until a real contract and trading link are published.
+A single-page site for an Ethereum meme token. The mascot is a fictional grey kitten in a neon yellow safety vest. The page tells that story, lists the token details, and explains how to buy on Uniswap.
 
 ## Preview on GitHub Pages
 
@@ -31,9 +31,9 @@ Approved source files live in `assets/brand/`:
 | File | Use |
 | --- | --- |
 | `logo-plain.png` | Navigation, favicon, hero, mini-game |
-| `logo-wordmark.png` | Community download and meme studio |
+| `logo-wordmark.png` | Named emblem |
 | `banner-wide.png` | 3:1 supporting illustration under the story |
-| `banner-telegram.png` | 1100×520 community preview and social image |
+| `banner-telegram.png` | 1100×520 social image |
 
 After replacing a source file, regenerate the web images:
 
@@ -45,7 +45,7 @@ That writes optimized PNG and WebP files, favicons, and `public/brand/og.png`. T
 
 ## Configure facts and links
 
-Edit `src/config/site.ts`. Leave unknown values as `null`. Do not guess supply, taxes, allocation, liquidity, ownership, or an audit.
+Edit `src/config/site.ts`. Leave unknown values as `null`. The token table shows supply, taxes, and ownership from this file. A missing contract address is shown as “Coming Soon..”, and Copy address stays disabled until the address is a valid `0x` value.
 
 | Field | What to enter |
 | --- | --- |
@@ -73,24 +73,15 @@ Buying is enabled only when **all** of these are true:
 2. `contractAddress` matches `0x` and 40 hex characters.
 3. `purchaseUrl` is an `https` URL.
 
-Until then, copy and buy controls stay disabled and the page says trading is not live. The navigation shows **Buy $EFBOSS** only in that live state. **Join the Community** appears in the navigation only when a Telegram or X URL is set. Unconfigured links are omitted. `#` is never used as a stand-in destination.
+Until then, the nav buy button stays disabled. **Join the Community** appears in the navigation only when a Telegram or X URL is set. Those same URLs turn the footer X and Telegram icons into links. Unconfigured links are omitted. `#` is never used as a stand-in destination.
 
-The kitten detection test and meme studio work without a wallet. They do not pay tokens or send captions anywhere. Sharing, when the browser offers it, opens the device share sheet so the visitor chooses where to post.
+The kitten detection test works without a wallet. It does not pay tokens. Sharing, when the browser offers it, opens the device share sheet so the visitor chooses where to post.
 
-## Still missing before publication
+## Still missing
 
 These fields are intentionally empty:
 
 - Contract address and explorer override
 - Purchase URL and live launch status
-- Telegram, X, DEXTools, and DexScreener
-- Total supply, buy tax, and sell tax
-- Allocation
-- Liquidity status and evidence
-- Ownership, administrative controls, and evidence
-- Contract-source verification
-- Audit
-- News source
-- Canonical domain
-
-Do not publish claims for any of those until the values are real.
+- Telegram and X URLs
+- Allocation, liquidity, audit, and news source

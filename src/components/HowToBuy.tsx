@@ -1,88 +1,63 @@
-import { site } from "../config/site.ts";
-import { canPurchase, isContractAddress, networkLabel, tradingMessage } from "../config/selectors.ts";
+import type { ReactNode } from "react";
 import { ExternalLink } from "./ExternalLink.tsx";
 
-const WALLETS = [
-  { label: "MetaMask", href: "https://metamask.io/download/" },
-  { label: "Rainbow", href: "https://rainbow.me/" },
-  { label: "Coinbase Wallet", href: "https://www.coinbase.com/wallet" },
+const STEPS: Array<{ title: string; body: ReactNode }> = [
+  {
+    title: "Create a Wallet",
+    body: (
+      <p>
+        Download MetaMask or your wallet of choice from the App Store or Google Play Store for free.
+        Desktop users, download the Google Chrome extension by going to{" "}
+        <ExternalLink href="https://metamask.io">metamask.io</ExternalLink>.
+      </p>
+    ),
+  },
+  {
+    title: "Get Some ETH",
+    body: (
+      <p>
+        Have ETH in your wallet to switch to $EFBOSS. If you don’t have any ETH, you can buy directly
+        on MetaMask, transfer from another wallet, or buy on another exchange and send it to your
+        wallet.
+      </p>
+    ),
+  },
+  {
+    title: "Go to Uniswap",
+    body: (
+      <p>
+        Connect to Uniswap. Go to <ExternalLink href="https://app.uniswap.org">app.uniswap.org</ExternalLink>{" "}
+        in Google Chrome or on the browser inside your MetaMask app. Connect your wallet. Paste the
+        $EFBOSS token address into Uniswap, select $EFBOSS, and confirm. When MetaMask prompts you for
+        a wallet signature, review the swap and sign only if it matches.
+      </p>
+    ),
+  },
+  {
+    title: "Switch ETH for $EFBOSS",
+    body: (
+      <p>
+        Switch ETH for $EFBOSS. We have zero taxes, so you don’t need to worry about buying with a
+        specific slippage, although you may need to use slippage during times of market volatility.
+      </p>
+    ),
+  },
 ];
 
 export function HowToBuy() {
-  const live = canPurchase(site);
-  const buyHref = live ? site.purchaseUrl : null;
-  const address = isContractAddress(site.contractAddress) ? site.contractAddress : null;
-  const network = site.network.chainId === 1 ? "Ethereum mainnet" : networkLabel(site);
-
-  const steps = [
-    {
-      title: "Prepare a wallet",
-      body: "Install an Ethereum-compatible wallet from its official website. This site will never ask for a seed phrase or private key.",
-      extra: (
-        <ul className="wallet-links">
-          {WALLETS.map((wallet) => (
-            <li key={wallet.href}>
-              <ExternalLink href={wallet.href}>{wallet.label}</ExternalLink>
-            </li>
-          ))}
-        </ul>
-      ),
-    },
-    {
-      title: "Fund it with ETH",
-      body: `Add ETH on ${network}. Keep enough ETH for the swap and for network fees.`,
-      extra: null,
-    },
-    {
-      title: "Open the verified trading link",
-      body: live
-        ? "Use the trading link published here. Check that the wallet network and the token contract match this website before you continue."
-        : "Trading is not live yet. This step stays disabled until a verified purchase link and contract address are published.",
-      extra: (
-        <div className="step-action">
-          {address ? <p className="address">{address}</p> : <p>Contract not announced.</p>}
-          {buyHref ? (
-            <a className="btn btn-primary" href={buyHref} target="_blank" rel="noopener noreferrer">
-              Open trading link
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
-          ) : (
-            <button type="button" className="btn btn-disabled" disabled>
-              Trading link not announced
-            </button>
-          )}
-        </div>
-      ),
-    },
-    {
-      title: "Review the swap",
-      body: "Before you confirm in your wallet, read the amount, price impact, minimum received, network fee, and any token taxes. If something looks wrong, reject the transaction.",
-      extra: null,
-    },
-  ];
-
   return (
-    <>
-      <p className="callout" role="status">
-        {tradingMessage(site)}
-      </p>
-      <ol className="steps">
-        {steps.map((step, index) => (
-          <li key={step.title} className="step">
-            <div className="step-icon" aria-hidden="true">
-              <StepIcon index={index} />
-            </div>
-            <p className="step-num">{String(index + 1).padStart(2, "0")}</p>
-            <h3>{step.title}</h3>
-            <p>{step.body}</p>
-            {step.extra}
-          </li>
-        ))}
-      </ol>
-      <p className="fact-note">
-        Do not sign a message or transaction you do not understand. Never type a seed phrase into a website.
-      </p>
-    </>
+    <ol className="steps">
+      {STEPS.map((step, index) => (
+        <li key={step.title} className="step">
+          <div className="step-icon" aria-hidden="true">
+            <StepIcon index={index} />
+          </div>
+          <p className="step-num">{String(index + 1).padStart(2, "0")}</p>
+          <h3>{step.title}</h3>
+          {step.body}
+        </li>
+      ))}
+    </ol>
   );
 }
 
