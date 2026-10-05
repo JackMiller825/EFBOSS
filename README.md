@@ -4,9 +4,9 @@ A single-page site for an Ethereum meme token. The mascot is a fictional grey ki
 
 ## Preview on GitHub Pages
 
-The public preview is [https://jackmiller825.github.io/EFBOSS/](https://jackmiller825.github.io/EFBOSS/).
+The public site is [https://efboss.space/](https://efboss.space/).
 
-Pushing `main` to [JackMiller825/EFBOSS](https://github.com/JackMiller825/EFBOSS) runs `.github/workflows/pages.yml`. That build uses `BASE_PATH=/EFBOSS/` so images and scripts load from the project site. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions** if the first run asks for it.
+Pushing `main` to [JackMiller825/EFBOSS](https://github.com/JackMiller825/EFBOSS) runs `.github/workflows/pages.yml`. The custom domain is served from the site root, so the build uses base path `/`. `CNAME` is copied into the published folder so the domain stays attached. In the repository settings, **Pages → Build and deployment → Source** should be **GitHub Actions**.
 
 ## Run it
 

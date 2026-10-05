@@ -32,11 +32,11 @@ jobs:
 
       - name: Build the site
         run: npm run build
-        env:
-          BASE_PATH: /EFBOSS/
 
       - name: Add a Pages 404 page
-        run: cp dist/index.html dist/404.html
+        run: |
+          cp dist/index.html dist/404.html
+          cp CNAME dist/CNAME
 
       - name: Upload the site
         uses: actions/upload-pages-artifact@v3

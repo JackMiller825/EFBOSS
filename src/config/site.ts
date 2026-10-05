@@ -132,8 +132,8 @@ export const site: SiteConfig = {
   sourceUrl: null,
   audit: null,
   news: null,
-  /** Public GitHub Pages origin for this repository. */
-  canonicalUrl: "https://jackmiller825.github.io/EFBOSS",
+  /** Public site origin. */
+  canonicalUrl: "https://efboss.space",
   assets: {
     logoPlain: {
       png: asset("brand/logo-plain.png"),
