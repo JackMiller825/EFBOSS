@@ -394,8 +394,7 @@ function SceneArt() {
         <rect x="492" y="390" width="16" height="28" />
         <rect x="492" y="440" width="16" height="28" />
         <rect x="492" y="490" width="16" height="28" />
-        <rect x="492" y="540" width="16" height="28" />
-        <rect x="492" y="590" width="16" height="28" />
+        <rect x="492" y="540" width="16" height="22" />
       </g>
     </svg>
   );

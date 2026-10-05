@@ -35,21 +35,6 @@ export async function renderBossCard(result: string): Promise<Blob> {
   ctx.arc(600, 560, 360, 0, Math.PI * 2);
   ctx.stroke();
 
-  ctx.strokeStyle = "#DFFF00";
-  ctx.lineWidth = 4;
-  const ticks: Array<[number, number, number, number]> = [
-    [600, 150, 600, 190],
-    [600, 930, 600, 970],
-    [190, 560, 230, 560],
-    [970, 560, 1010, 560],
-  ];
-  for (const [x1, y1, x2, y2] of ticks) {
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x2, y2);
-    ctx.stroke();
-  }
-
   const size = 640;
   ctx.drawImage(image, 600 - size / 2, 560 - size / 2, size, size);
 

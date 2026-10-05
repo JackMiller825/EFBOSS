@@ -273,13 +273,15 @@ p {
   position: absolute;
   z-index: 50;
   top: 100%;
-  left: 0;
   right: 0;
+  left: 0;
+  height: calc(100dvh - var(--header-h));
   flex-direction: column;
   gap: 0.15rem;
-  padding: 0.4rem 1.1rem 1rem;
-  background: rgba(7, 17, 31, 0.98);
-  border-bottom: 1px solid var(--cyan-dim);
+  padding: 0.6rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom));
+  overflow: auto;
+  background: #07111f;
+  border-top: 1px solid var(--cyan-dim);
 }
 
 .site-nav a {
@@ -1386,11 +1388,16 @@ legend,
   .site-nav,
   .site-nav.is-open {
     position: static;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 0.2rem 1rem;
     padding: 0;
+    overflow: visible;
     background: transparent;
     border: 0;
   }
