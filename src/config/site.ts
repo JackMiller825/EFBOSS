@@ -98,6 +98,10 @@ export const statements = {
   risk: "$EFBOSS is a speculative meme token. Its price can be highly volatile, and you may lose your entire purchase amount.",
 } as const;
 
+function asset(file: string): string {
+  return `${import.meta.env.BASE_URL}${file}`;
+}
+
 export const site: SiteConfig = {
   name: "Elon's Final Boss",
   ticker: "$EFBOSS",
@@ -129,39 +133,40 @@ export const site: SiteConfig = {
   sourceUrl: null,
   audit: null,
   news: null,
-  canonicalUrl: null,
+  /** Public GitHub Pages origin for this repository. */
+  canonicalUrl: "https://jackmiller825.github.io/EFBOSS",
   assets: {
     logoPlain: {
-      png: "/brand/logo-plain.png",
-      webp: "/brand/logo-plain.webp",
+      png: asset("brand/logo-plain.png"),
+      webp: asset("brand/logo-plain.webp"),
       width: 960,
       height: 960,
     },
     logoWordmark: {
-      png: "/brand/logo-wordmark.png",
-      webp: "/brand/logo-wordmark.webp",
+      png: asset("brand/logo-wordmark.png"),
+      webp: asset("brand/logo-wordmark.webp"),
       width: 960,
       height: 960,
     },
     bannerWide: {
-      png: "/brand/banner-wide.png",
-      webp: "/brand/banner-wide.webp",
+      png: asset("brand/banner-wide.png"),
+      webp: asset("brand/banner-wide.webp"),
       width: 1800,
       height: 600,
     },
     bannerWideSmall: {
-      png: "/brand/banner-wide-sm.png",
-      webp: "/brand/banner-wide-sm.webp",
+      png: asset("brand/banner-wide-sm.png"),
+      webp: asset("brand/banner-wide-sm.webp"),
       width: 800,
       height: 267,
     },
     bannerTelegram: {
-      png: "/brand/banner-telegram.png",
-      webp: "/brand/banner-telegram.webp",
+      png: asset("brand/banner-telegram.png"),
+      webp: asset("brand/banner-telegram.webp"),
       width: 1100,
       height: 520,
     },
-    socialPreview: "/brand/og.png",
-    favicon: "/brand/favicon-32.png",
+    socialPreview: asset("brand/og.png"),
+    favicon: asset("brand/favicon-32.png"),
   },
 };

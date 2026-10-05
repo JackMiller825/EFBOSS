@@ -15,17 +15,18 @@ function upsertMeta(attribute: "name" | "property", key: string, content: string
 export function Metadata() {
   useEffect(() => {
     if (!isHttpsUrl(site.canonicalUrl)) return;
-    const origin = site.canonicalUrl.replace(/\/$/, "");
+    const page = new URL(site.canonicalUrl.endsWith("/") ? site.canonicalUrl : `${site.canonicalUrl}/`);
+    const image = new URL(site.assets.socialPreview, page.origin).href;
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement("link");
       canonical.rel = "canonical";
       document.head.appendChild(canonical);
     }
-    canonical.href = `${origin}/`;
-    upsertMeta("property", "og:url", `${origin}/`);
-    upsertMeta("property", "og:image", `${origin}${site.assets.socialPreview}`);
-    upsertMeta("name", "twitter:image", `${origin}${site.assets.socialPreview}`);
+    canonical.href = page.href;
+    upsertMeta("property", "og:url", page.href);
+    upsertMeta("property", "og:image", image);
+    upsertMeta("name", "twitter:image", image);
   }, []);
 
   return null;

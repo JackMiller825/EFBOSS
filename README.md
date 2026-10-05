@@ -2,6 +2,12 @@
 
 A single-page site for an independent Ethereum meme token. The mascot is a fictional grey kitten in a neon yellow safety vest. The page tells that story, shows only the token facts you enter, and keeps buying disabled until a real contract and trading link are published.
 
+## Preview on GitHub Pages
+
+The public preview is [https://jackmiller825.github.io/EFBOSS/](https://jackmiller825.github.io/EFBOSS/).
+
+Pushing `main` to [JackMiller825/EFBOSS](https://github.com/JackMiller825/EFBOSS) runs `.github/workflows/pages.yml`. That build uses `BASE_PATH=/EFBOSS/` so images and scripts load from the project site. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions** if the first run asks for it.
+
 ## Run it
 
 ```bash
