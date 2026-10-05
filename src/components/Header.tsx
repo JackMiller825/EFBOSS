@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { site } from "../config/site.ts";
-import { canPurchase, primaryCommunityUrl } from "../config/selectors.ts";
+import { primaryCommunityUrl } from "../config/selectors.ts";
 import { BrandImage } from "./BrandImage.tsx";
 
 const LINKS = [
@@ -14,7 +14,6 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const navRef = useRef<HTMLElement>(null);
-  const buyHref = canPurchase(site) ? site.purchaseUrl : null;
   const communityHref = primaryCommunityUrl(site);
 
   useEffect(() => {
@@ -106,13 +105,7 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          {buyHref ? (
-            <a className="btn btn-primary nav-cta" href={buyHref} target="_blank" rel="noopener noreferrer">
-              Buy {site.ticker}
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
-          ) : null}
-          {!buyHref && communityHref ? (
+          {communityHref ? (
             <a className="btn btn-primary nav-cta" href={communityHref} target="_blank" rel="noopener noreferrer">
               Join the Community
               <span className="sr-only"> (opens in a new tab)</span>

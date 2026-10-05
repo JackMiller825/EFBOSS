@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { site } from "../config/site.ts";
-import { canPurchase, contractAddressText, isHttpsUrl } from "../config/selectors.ts";
+import { contractAddressText, isHttpsUrl } from "../config/selectors.ts";
 import { useOnScreen } from "../hooks/useMedia.ts";
 import { BrandImage } from "./BrandImage.tsx";
 import { CopyAddressButton } from "./CopyAddressButton.tsx";
@@ -9,8 +9,6 @@ import { ExternalLink } from "./ExternalLink.tsx";
 export function Hero() {
   const frameRef = useRef<HTMLDivElement>(null);
   const visible = useOnScreen(frameRef, 0.2);
-  const live = canPurchase(site);
-  const buyHref = live ? site.purchaseUrl : null;
   const telegram = isHttpsUrl(site.social.telegram) ? site.social.telegram : null;
   const xLink = isHttpsUrl(site.social.x) ? site.social.x : null;
 
@@ -30,17 +28,7 @@ export function Hero() {
             independent Ethereum meme project with nine lives and absolutely no respect for the scanner.
           </p>
           <div className="actions">
-            {buyHref ? (
-              <a className="btn btn-primary" href={buyHref} target="_blank" rel="noopener noreferrer">
-                Buy {site.ticker}
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            ) : (
-              <button type="button" className="btn btn-disabled" disabled>
-                Buy {site.ticker}
-              </button>
-            )}
-            <a className={buyHref ? "btn btn-secondary" : "btn btn-primary"} href="#boss-test">
+            <a className="btn btn-primary" href="#boss-test">
               Meet the Boss
             </a>
           </div>

@@ -73,7 +73,7 @@ Buying is enabled only when **all** of these are true:
 2. `contractAddress` matches `0x` and 40 hex characters.
 3. `purchaseUrl` is an `https` URL.
 
-Until then, the nav buy button stays disabled. **Join the Community** appears in the navigation only when a Telegram or X URL is set. Those same URLs turn the footer X and Telegram icons into links. Unconfigured links are omitted. `#` is never used as a stand-in destination.
+**Join the Community** appears in the navigation when a Telegram or X URL is set. Those same URLs turn the footer X and Telegram icons into links. Unconfigured links are omitted. `#` is never used as a stand-in destination.
 
 The kitten detection test works without a wallet. It does not pay tokens. Sharing, when the browser offers it, opens the device share sheet so the visitor chooses where to post.
 
@@ -83,5 +83,4 @@ These fields are intentionally empty:
 
 - Contract address and explorer override
 - Purchase URL and live launch status
-- Telegram and X URLs
 - Allocation, liquidity, audit, and news source

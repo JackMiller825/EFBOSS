@@ -115,8 +115,8 @@ export const site: SiteConfig = {
   purchaseUrl: null,
   explorerUrl: null,
   social: {
-    telegram: null,
-    x: null,
+    telegram: "https://t.me/efboss_eth",
+    x: "https://x.com/efboss_eth",
     dextools: null,
     dexscreener: null,
   },
