@@ -7,7 +7,7 @@ export function CopyAddressButton() {
   const [state, setState] = useState<"idle" | "copied" | "error">("idle");
 
   async function onCopy() {
-    const ok = await copyText(contractAddressText(site));
+    const ok = await copyText();
     setState(ok ? "copied" : "error");
     window.setTimeout(() => setState("idle"), 2000);
   }
