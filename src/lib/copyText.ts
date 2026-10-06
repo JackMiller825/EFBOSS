@@ -1,11 +1,11 @@
 export async function copyText(text: string): Promise<boolean> {
   try {
-    await navigator.clipboard.writeText(value);
+    await navigator.clipboard.writeText(text);
     return true;
   } catch {
     try {
       const area = document.createElement("textarea");
-      area.value = value;
+      area.value = text;
       area.setAttribute("readonly", "");
       area.style.position = "fixed";
       area.style.top = "0";
