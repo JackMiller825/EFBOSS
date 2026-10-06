@@ -488,7 +488,11 @@ p {
 
 .hero-contract-value,
 .contract-copy-value {
-  overflow-wrap: anywhere;
+  font-family: var(--mono);
+  font-size: clamp(0.68rem, 3.15vw, 0.92rem);
+  font-weight: 500;
+  line-height: 1.45;
+  white-space: nowrap;
 }
 
 .btn-copy {

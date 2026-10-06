@@ -81,6 +81,6 @@ The kitten detection test works without a wallet. It does not pay tokens. Sharin
 
 These fields are intentionally empty:
 
-- Contract address and explorer override
-- Purchase URL and live launch status
+- Explorer override and purchase URL
+- Live launch status
 - Allocation, liquidity, audit, and news source
