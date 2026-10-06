@@ -41,7 +41,7 @@ export function Hero() {
           <p className="hero-contract">
             <span className="hero-contract-label">Contract Address:</span>
             <span className="hero-contract-pair">
-              <span className="hero-contract-value">{contractAddressText(site)}</span>
+              <span className="hero-contract-value">{contractAddressText()}</span>
               <CopyAddressButton />
             </span>
           </p>
