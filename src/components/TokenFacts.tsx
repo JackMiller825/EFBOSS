@@ -18,7 +18,7 @@ export function TokenFacts() {
           <th scope="row">Contract address</th>
           <td>
             <div className="contract-copy">
-              <span className="contract-copy-value">{contractAddressText(site)}</span>
+              <span className="contract-copy-value">{contractAddressText()}</span>
               <CopyAddressButton />
             </div>
           </td>
