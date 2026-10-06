@@ -164,8 +164,8 @@ export function pending(value: string | null | undefined, emptyLabel: string): s
 }
 
 /** Shown beside Copy address. Replace `contractAddress` and this string updates. */
-export function contractAddressText(config: SiteConfig): string {
+export function contractAddressText(): string {
   // const value = config.contractAddress?.trim();
   const value = "0x147A5C3666E8BF31e7A0a42c2b3696672a1FE915";
-  return value ? value : "Coming Soon..";
+  return value;
 }
