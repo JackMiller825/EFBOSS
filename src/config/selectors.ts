@@ -1,4 +1,4 @@
-import type { AllocationSlice, EvidenceLink, SiteConfig } from "./site.ts";
+import { site, type AllocationSlice, type EvidenceLink, type SiteConfig } from "./site.ts";
 
 const ADDRESS_RE = /^0x[a-fA-F0-9]{40}$/;
 
@@ -165,7 +165,6 @@ export function pending(value: string | null | undefined, emptyLabel: string): s
 
 /** Shown beside Copy address. Replace `contractAddress` and this string updates. */
 export function contractAddressText(): string {
-  // const value = config.contractAddress?.trim();
-  const value = "0x147A5C3666E8BF31e7A0a42c2b3696672a1FE915";
-  return value;
+  const value = site.contractAddress?.trim();
+  return value ? value : "Coming Soon..";
 }

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { site } from "../config/site.ts";
 import { contractAddressText } from "../config/selectors.ts";
 import { copyText } from "../lib/copyText.ts";
 
@@ -7,7 +6,7 @@ export function CopyAddressButton() {
   const [state, setState] = useState<"idle" | "copied" | "error">("idle");
 
   async function onCopy() {
-    const ok = await copyText();
+    const ok = await copyText(contractAddressText());
     setState(ok ? "copied" : "error");
     window.setTimeout(() => setState("idle"), 2000);
   }
