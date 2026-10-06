@@ -1,9 +1,12 @@
+import { ReactNode } from "react";
 import { useState } from "react";
 import { site } from "../config/site.ts";
 import { contractAddressText } from "../config/selectors.ts";
 import { copyText } from "../lib/copyText.ts";
 
-export function CopyAddressButton() {
+interface CopyAddressButtonProps {}
+
+export function CopyAddressButton(props: CopyAddressButtonProps = {}) {
   const [state, setState] = useState<"idle" | "copied" | "error">("idle");
 
   async function onCopy() {
